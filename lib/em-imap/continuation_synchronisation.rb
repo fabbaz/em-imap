@@ -63,7 +63,7 @@ module EventMachine
             if awaiting_continuation?
               @awaiting_continuation.receive_event response
             else
-              fail Net::IMAP::ResponseError.new(Net::IMAP::ResponseText.new(nil,"Unexpected continuation response from server"))
+              fail Net::IMAP::ResponseError.new(Net::IMAP::ResponseCode.new(nil,Net::IMAP::ResponseText.new(nil,'Unexpected continuation response from server')))
             end
           end
         end
